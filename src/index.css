@@ -1,0 +1,78 @@
+/* ─── Reset & Base ─────────────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* ─── CSS Variables ─────────────────────────────────────────── */
+:root {
+  --bg-base: #0f0e0c;
+  --bg-surface: #1a1916;
+  --text-primary: #e8e4dc;
+  --text-secondary: #9a9690;
+  --text-muted: #5a5652;
+  --border-subtle: rgba(255, 255, 255, 0.07);
+
+  --wraith-primary: #8a9aaa;
+  --wraith-mid: #5a6a78;
+  --wraith-deep: #1e2830;
+  --wraith-bg-wash: rgba(90, 106, 120, 0.18);
+
+  --sage-primary: #c8922a;
+  --sage-mid: #9a6e1e;
+  --sage-deep: #2a1e08;
+  --sage-bg-wash: rgba(200, 146, 42, 0.18);
+
+  --zealot-primary: #c85a3a;
+  --zealot-mid: #9a3e24;
+  --zealot-deep: #2a100a;
+  --zealot-bg-wash: rgba(200, 90, 58, 0.18);
+
+  --font-display: 'Cormorant Garamond', Georgia, serif;
+  --font-body: 'DM Sans', system-ui, sans-serif;
+}
+
+/* ─── Global ────────────────────────────────────────────────── */
+html, body, #root {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  background-color: var(--bg-base);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  font-weight: 400;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+/* Grain texture */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.05'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 9998;
+  opacity: 0.4;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+h1, h2, h3 {
+  font-family: var(--font-display);
+  line-height: 1.2;
+}
+
+/* ─── Scrollbar ─────────────────────────────────────────────── */
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: var(--bg-base); }
+::-webkit-scrollbar-thumb { background: var(--text-muted); border-radius: 3px; }
